@@ -46,7 +46,7 @@ public class TrainService {
         // add train to trainRepository
         trainRepository.save(train);
 
-        return train.getTrainId();
+        return trainRepository.findAll().indexOf(train);
     }
 
     public Integer calculateAvailableSeats(SeatAvailabilityEntryDto seatAvailabilityEntryDto){
