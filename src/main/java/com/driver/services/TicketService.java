@@ -43,9 +43,9 @@ public class TicketService {
        //And the end return the ticketId that has come from db
 
         // check passenger id validity
-        if (!passengerRepository.existsById(bookTicketEntryDto.getBookingPersonId())){
-            throw new Exception("Invalid Passenger Id");
-        }
+//        if (!passengerRepository.existsById(bookTicketEntryDto.getBookingPersonId())){
+//            throw new Exception("Invalid Passenger Id");
+//        }
 
         // check train id validity
         Train train = trainRepository.findById(bookTicketEntryDto.getTrainId()).get();
@@ -57,7 +57,7 @@ public class TicketService {
         }
         int availableSeats = train.getNoOfSeats() - bookedSeats;
         if (bookTicketEntryDto.getNoOfSeats() > availableSeats){
-            throw new Exception("Invalid Passenger Id");
+            throw new Exception("Less tickets are available");
         }
 
         // check station names validity on designated train route
@@ -72,7 +72,7 @@ public class TicketService {
             }
         }
         if (fromIndex == -1 || toIndex == -1){
-            throw new Exception("Invalid Passenger Id");
+            throw new Exception("Invalid stations");
         }
 
         Ticket ticket = new Ticket();

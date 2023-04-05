@@ -29,7 +29,7 @@ public class TrainController {
 
         //We need to return the trainId of the newly added train
         Integer trainId = trainService.addTrain(train);
-        return trainId;
+        return 0;
 
     }
 
