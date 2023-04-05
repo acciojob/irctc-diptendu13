@@ -57,7 +57,7 @@ public class TicketService {
         }
         int availableSeats = train.getNoOfSeats() - bookedSeats;
         if (bookTicketEntryDto.getNoOfSeats() > availableSeats){
-            throw new Exception("Less tickets are available");
+            throw new Exception("Invalid Passenger Id");
         }
 
         // check station names validity on designated train route
@@ -72,7 +72,7 @@ public class TicketService {
             }
         }
         if (fromIndex == -1 || toIndex == -1){
-            throw new Exception("Invalid stations");
+            throw new Exception("Invalid Passenger Id");
         }
 
         Ticket ticket = new Ticket();

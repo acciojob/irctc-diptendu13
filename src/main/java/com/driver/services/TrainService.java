@@ -81,7 +81,7 @@ public class TrainService {
                 availableSeats += ticket.getPassengersList().size();
             }
         }
-       return availableSeats;
+       return train.getNoOfSeats() - availableSeats;
     }
 
     public Integer calculatePeopleBoardingAtAStation(Integer trainId,Station station) throws Exception{
